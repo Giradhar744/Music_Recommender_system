@@ -15,8 +15,8 @@ sp = spotipy.Spotify(auth_manager=auth_manager)
 # 🚀 Fetch Spotify track image
 def fetch_poster(music_title):
     results = sp.search(q=music_title, type='track', limit=1)
-    if results['tracks']['items']:
-        return results['tracks']['items'][0]['album']['images'][0]['url']
+    if results['tracks']['items']: # type: ignore
+        return results['tracks']['items'][0]['album']['images'][0]['url'] # type: ignore
     else:
         return "https://via.placeholder.com/300"
 
